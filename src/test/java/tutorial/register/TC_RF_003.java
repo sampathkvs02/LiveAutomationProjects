@@ -59,11 +59,6 @@ public class TC_RF_003 {
 		Thread.sleep(2000);
 		
 		driver.quit();
-		
-		
-		
-		
-
 	}
 	
 	public String generateNewEmail() {
