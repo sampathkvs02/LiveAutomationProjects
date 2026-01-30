@@ -1,19 +1,16 @@
 package tutorial.register;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC_RF_008 {
+public class TC_RF_009 {
 	
 	@Test
-	public void verifyRegisteringAccountByProvidingMismatchingPassword() throws Exception {
-	
+	public void verifyRegisteringAccountUsingExistingEmail() throws Exception {
+		
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(10));
@@ -22,28 +19,23 @@ public class TC_RF_008 {
 		driver.findElement(By.linkText("Register")).click();
 		driver.findElement(By.id("input-firstname")).sendKeys("John");
 		driver.findElement(By.id("input-lastname")).sendKeys("Doe");
-		driver.findElement(By.id("input-email")).sendKeys(generateNewEmail());
+		driver.findElement(By.id("input-email")).sendKeys("venkatasampathkodati@gmail.com");
 		driver.findElement(By.id("input-telephone")).sendKeys("1234567890");
 		driver.findElement(By.id("input-password")).sendKeys("Password");
-		driver.findElement(By.id("input-confirm")).sendKeys("DifferentPassword");
+		driver.findElement(By.id("input-confirm")).sendKeys("Password");
 		driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();
 		driver.findElement(By.name("agree")).click();
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
 		
-		String expectedErrorMessage = "Password confirmation does not match password!";
+		String expectedErrorMessage = "Warning: E-Mail Address is already registered!";
 		
-		Assert.assertTrue(driver.findElement(By.xpath("//input[@id='input-confirm']/following-sibling::div")).getText().contains(expectedErrorMessage));
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText().contains(expectedErrorMessage));
 		
-		 Thread.sleep(3000);
+		Thread.sleep(3000);
 		
 		driver.quit();
 		
-	}
-		
-		public String generateNewEmail() {
-	        DateTimeFormatter formatter =
-	                DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-	        return LocalDateTime.now().format(formatter) + "@gmail.com";	
+	
 	}
 	
 }
