@@ -1,14 +1,14 @@
 package tutorial.register;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import Utils.CommonUtils;
 
 public class TC_RF_001 {
 
@@ -25,7 +25,7 @@ public class TC_RF_001 {
 
         driver.findElement(By.id("input-firstname")).sendKeys("sampath");
         driver.findElement(By.id("input-lastname")).sendKeys("kodati");
-        driver.findElement(By.id("input-email")).sendKeys(generateNewEmail());
+        driver.findElement(By.id("input-email")).sendKeys(CommonUtils.generateBrandNewEmail());
         driver.findElement(By.id("input-telephone")).sendKeys("9381932459");
         driver.findElement(By.id("input-password")).sendKeys("@123322");
         driver.findElement(By.id("input-confirm")).sendKeys("@123322");
@@ -65,9 +65,4 @@ public class TC_RF_001 {
         driver.quit();
     }
 
-    public String generateNewEmail() {
-        DateTimeFormatter formatter =
-                DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-        return LocalDateTime.now().format(formatter) + "@gmail.com";
-    }
 }
