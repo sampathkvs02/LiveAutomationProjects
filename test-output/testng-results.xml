@@ -2,16 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-03T12:10:45 IST" name="Default suite" finished-at="2026-02-03T12:10:52 IST" duration-ms="6993">
+  <suite started-at="2026-02-03T18:50:04 IST" name="Default suite" finished-at="2026-02-03T18:50:10 IST" duration-ms="6490">
     <groups>
     </groups>
-    <test started-at="2026-02-03T12:10:45 IST" name="Default test" finished-at="2026-02-03T12:10:52 IST" duration-ms="6993">
-      <class name="tutorial.register.TC_RF_013">
-        <test-method signature="verifyPlaceHolderTextFieldsInRegisterAccountPage()[pri:0, instance:tutorial.register.TC_RF_013@42e99e4a]" started-at="2026-02-03T12:10:45 IST" name="verifyPlaceHolderTextFieldsInRegisterAccountPage" finished-at="2026-02-03T12:10:52 IST" duration-ms="6877" status="PASS">
+    <test started-at="2026-02-03T18:50:04 IST" name="Default test" finished-at="2026-02-03T18:50:10 IST" duration-ms="6490">
+      <class name="tutorial.register.TC_RF_014">
+        <test-method signature="verifyMandatoryFieldsSymbolInRegisterAccountPage()[pri:0, instance:tutorial.register.TC_RF_014@71809907]" started-at="2026-02-03T18:50:04 IST" name="verifyMandatoryFieldsSymbolInRegisterAccountPage" finished-at="2026-02-03T18:50:10 IST" duration-ms="6360" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyPlaceHolderTextFieldsInRegisterAccountPage -->
-      </class> <!-- tutorial.register.TC_RF_013 -->
+        </test-method> <!-- verifyMandatoryFieldsSymbolInRegisterAccountPage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tutorial.register.TC_RF_014@71809907]" started-at="2026-02-03T18:50:10 IST" name="tearDown" finished-at="2026-02-03T18:50:10 IST" duration-ms="10" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tutorial.register.TC_RF_014 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
