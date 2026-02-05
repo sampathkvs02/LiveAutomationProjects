@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import Utils.CommonUtils;
@@ -20,8 +21,8 @@ import Utils.CommonUtils;
 			driver.quit();
 		}
 	
-		@Test
-		public void verifyRegisterAccountAndCheckingPasswordComplexity() {
+		@Test(dataProvider = "passwordsSupplier")
+		public void verifyRegisterAccountAndCheckingPasswordComplexity(String passwordText) {
 		
 			WebDriver driver = new ChromeDriver();
 			driver.manage().window().maximize();
@@ -36,8 +37,8 @@ import Utils.CommonUtils;
 			driver.findElement(By.id("input-telephone")).sendKeys("923112456");
 			driver.findElement(By.xpath("//input[@name='newsletter' and @value='1']")).click();
 			driver.findElement(By.name("agree")).click();
-			driver.findElement(By.id("input-password")).sendKeys("12345");
-			driver.findElement(By.id("input-confirm")).sendKeys("12345");
+			driver.findElement(By.id("input-password")).sendKeys(passwordText);
+			driver.findElement(By.id("input-confirm")).sendKeys(passwordText);
 			driver.findElement(By.xpath("//input[@value='Continue']")).click();
 			
 			String expectedWarningMessage = "Password must be between 4 and 20 characters!";
@@ -46,6 +47,15 @@ import Utils.CommonUtils;
 			Assert.assertEquals(driver.findElement(By.xpath("//ul[@class='breadcrumb']//a[text()=success']")).isDisplayed(), false);
 			
 		
-	}
+	}	
+		@DataProvider(name = "passwordsSupplier")
+		public Object[][] supplyPasswords() {
+			Object[][] data = { {"12345"},{"adadsa"},{"abas123"},{"abcd123$"},{"ABD123$"} };
+			return data;
+			
+			
+			
+			
+		}
 
 }

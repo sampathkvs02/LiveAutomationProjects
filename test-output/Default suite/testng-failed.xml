@@ -5,7 +5,8 @@
     <classes>
       <class name="tutorial.register.TC_RF_017">
         <methods>
-          <include name="verifyRegisterAccountAndCheckingPasswordComplexity"/>
+          <include name="verifyRegisterAccountAndCheckingPasswordComplexity" invocation-numbers="0"/>
+          <include name="teardown"/>
         </methods>
       </class> <!-- tutorial.register.TC_RF_017 -->
     </classes>
