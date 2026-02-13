@@ -10,4 +10,11 @@ public class CommonUtils {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 		return LocalDateTime.now().format(formatter) + "@gmail.com";
 	}
+
+	public static boolean compareTwoScreenshots(String string, String string2) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
 }
